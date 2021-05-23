@@ -6,6 +6,7 @@ __version__ = "1.0"
 __maintainer__ = "Ashutosh Mishra"
 __status__ = "Production"
 
+#Importing Packages
 import os
 from datetime import datetime
 import time
@@ -33,7 +34,7 @@ class content_auditor():
         obj.difference_output(htmlfile1, htmlfile2)
 
 
-    def main_function(self,loc1,loc2):
+    def main_function(self,loc1,loc2): #This function opens 2 html files and compares each other and shows count of differences with line number#
 
         htmlfile1 = loc1
 
@@ -56,14 +57,6 @@ class content_auditor():
                     self.flagg = True
 
                     count += 1
-
-                    #print(f'Difference:{count}')
-
-                    #print(f'Error in Line: {line_error}')
-
-                    #print(file1Line.strip('\n'))
-
-                    #print(file2Line.strip('\n'))
 
                     error_no_list.append(line_error)
 
@@ -122,8 +115,8 @@ class content_auditor():
             self.label3.destroy()
 
             self.label4.destroy()
-
-    def difference_output(self,loc1,loc2):
+             
+    def difference_output(self,loc1,loc2): #This Fuction outputs a html file which shows the difference between each other#
 
         htmlfile1 = loc1
 
@@ -140,18 +133,18 @@ class content_auditor():
         with open(f'{dir_path}\\Output\\difference.html', 'w') as outfile:
 
             outfile.write(htmldiffs)
-
+            
 if __name__ == '__main__':
 
     start = datetime.now()
 
     obj = content_auditor()
 
-    window = Tk()
+    window = Tk() #Making Tkinter Window Object#
 
     window.geometry("1366x768")
 
-    window.iconbitmap(f'{dir_path}\\icon_files\\browse.ico')
+    window.iconbitmap(f'{dir_path}\\icon_files\\browse.ico')  ###Make Sure to Create Your respective directoires and files###
 
     window['bg'] = 'LightCoral'
 
@@ -159,7 +152,7 @@ if __name__ == '__main__':
 
     window.resizable(0,0)
 
-    image1 = Image.open(f'{dir_path}\\icon_files\\u.jpg')
+    image1 = Image.open(f'{dir_path}\\icon_files\\u.jpg') ###Make Sure to Create Your respective directoires and files###
 
     img = image1.resize((1366,768), Image.ANTIALIAS)
 
@@ -190,7 +183,5 @@ if __name__ == '__main__':
     click_button2.place(relx=0.5, rely=0.2, anchor='n')
 
     click_button2.config(fg='Black', bg='PeachPuff')
-
-    #obj.file_location()
 
     window.mainloop()
